@@ -5,5 +5,5 @@ kind: Kustomization
 # list of resources to be Applied
 resources:
 #- ../../base/active/
-- gateway-cert.yaml
+#- gateway-cert.yaml
 - gateway-clusterissuer.yaml
