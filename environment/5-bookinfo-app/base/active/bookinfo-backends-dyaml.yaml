@@ -86,9 +86,15 @@ spec:
       labels:
         app: details
         version: v1
+      annotations:
+        proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }'
     spec:
       containers:
       - image: us-central1-docker.pkg.dev/solo-test-236622/jmunozro/examples-bookinfo-details-v1:1.16.2
+        resources:
+          requests:
+            memory: "70Mi"
+            cpu: "10m"
         imagePullPolicy: IfNotPresent
         name: details
         ports:
@@ -116,9 +122,15 @@ spec:
       labels:
         app: ratings
         version: v1
+      annotations:
+        proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }'
     spec:
       containers:
       - image: us-central1-docker.pkg.dev/solo-test-236622/jmunozro/examples-bookinfo-ratings-v1:1.16.2
+        resources:
+          requests:
+            memory: "75Mi"
+            cpu: "10m"
         imagePullPolicy: IfNotPresent
         name: ratings
         ports:
@@ -146,14 +158,20 @@ spec:
       labels:
         app: reviews
         version: v1
+      annotations:
+        proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }'
     spec:
       containers:
       - env:
         - name: LOG_DIR
           value: /tmp/logs
         - name: CLUSTER_NAME
-          value: cluster2
+          value: mgmt
         image: us-central1-docker.pkg.dev/solo-test-236622/jmunozro/examples-bookinfo-reviews-v1:1.16.2
+        resources:
+          requests:
+            memory: "150Mi"
+            cpu: "15m"
         imagePullPolicy: IfNotPresent
         name: reviews
         ports:
@@ -191,14 +209,20 @@ spec:
       labels:
         app: reviews
         version: v2
+      annotations:
+        proxy.istio.io/config: '{ "holdApplicationUntilProxyStarts": true }'
     spec:
       containers:
       - env:
         - name: LOG_DIR
           value: /tmp/logs
         - name: CLUSTER_NAME
-          value: cluster2
+          value: mgmt
         image: us-central1-docker.pkg.dev/solo-test-236622/jmunozro/examples-bookinfo-reviews-v2:1.16.2
+        resources:
+          requests:
+            memory: "170Mi"
+            cpu: "10m"
         imagePullPolicy: IfNotPresent
         name: reviews
         ports:
@@ -242,7 +266,7 @@ spec:
         - name: LOG_DIR
           value: /tmp/logs
         - name: CLUSTER_NAME
-          value: cluster2
+          value: cluster1
         image: us-central1-docker.pkg.dev/solo-test-236622/jmunozro/examples-bookinfo-reviews-v3:1.16.2
         imagePullPolicy: IfNotPresent
         name: reviews
