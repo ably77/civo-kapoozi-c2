@@ -8,6 +8,7 @@ resources:
 - bank-balance-reader.yaml
 - bank-config.yaml
 - bank-contacts.yaml
+- bank-demo-jwt-secret.yaml
 - bank-demo-ns.yaml
 - bank-frontend.yaml
 - bank-ledger-db.yaml
