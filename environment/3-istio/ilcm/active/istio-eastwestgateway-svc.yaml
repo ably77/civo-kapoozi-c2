@@ -5,7 +5,7 @@ metadata:
     app: istio-ingressgateway
     istio: eastwestgateway
     revision: 1-13
-    topology.istio.io/network: mgmt
+    topology.istio.io/network: cluster2
   name: istio-eastwestgateway
   namespace: istio-gateways
 spec:
@@ -34,5 +34,5 @@ spec:
     app: istio-ingressgateway
     istio: eastwestgateway
     revision: 1-13
-    topology.istio.io/network: mgmt
+    topology.istio.io/network: cluster2
   type: NodePort
