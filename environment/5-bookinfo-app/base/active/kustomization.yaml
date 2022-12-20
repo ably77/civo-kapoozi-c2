@@ -6,3 +6,22 @@ kind: Kustomization
 resources:
 - bookinfo-backends-dyaml.yaml
 - bookinfo-frontends-dyaml.yaml
+
+
+patchesStrategicMerge:
+# remove reviews-v2
+- |-
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: reviews-v2
+    namespace: bookinfo-backends
+  $patch: delete
+# remove reviews-v3
+- |-
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: reviews-v3
+    namespace: bookinfo-backends
+  $patch: delete
