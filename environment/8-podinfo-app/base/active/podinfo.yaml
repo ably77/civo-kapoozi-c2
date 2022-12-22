@@ -23,10 +23,11 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: podinfo
+  name: podinfo-6.0.0
   namespace: podinfo
   labels:
     app: podinfo
+    version: 6.0.0
 spec:
   minReadySeconds: 5
   revisionHistoryLimit: 5
