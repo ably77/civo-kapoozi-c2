@@ -99,7 +99,7 @@ spec:
               value: "product-catalog.backend-apis-team.solo-io.mesh:80"
             - name: CURRENCY_SERVICE_ADDR
               value: "currency.backend-apis-team.solo-io.mesh:80"
-            # # ENV_PLATFORM: One of: local, gcp, aws, azure, onprem
+            # # ENV_PLATFORM: One of: local, gcp, gcp, azure, onprem
             # # When not set, defaults to "local" unless running in GKE, otherwies auto-sets to gcp 
             - name: ENV_PLATFORM 
               value: "local"
@@ -120,6 +120,6 @@ spec:
                 fieldRef:
                   fieldPath: metadata.namespace
             - name: KUBERNETES_CLUSTER_NAME
-              value: aws
+              value: gcp
           # - name: JAEGER_SERVICE_ADDR
           #   value: "jaeger-collector:14268"
